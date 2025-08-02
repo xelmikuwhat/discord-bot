@@ -6,7 +6,7 @@ from discord import app_commands
 from discord.ext import commands
 
 INFO_PANEL_CHANNEL_ID = 1398822788923392091
-EMBED_COLOR = discord.Color(0xE4A0B7)
+EMBED_COLOR = discord.Color(0xFF8BA0)
 
 intents = discord.Intents.default()
 intents.guilds = True
@@ -40,18 +40,19 @@ async def send_info_panel():
         print(f"Failed to delete previous panel: {e}")
 
     embed = discord.Embed(
-        description="""﹒make sure to follow **all** of these rules <a:038:1258205221385932993>  
-　<a:000:1325522777977126934>  - general tos   ⋆        ｡        ˚  
-　　　<a:witchy_wand:1399842051788505108>  - middleman tos 
- 　<a:pending:1398831307139584150>  - commission tos 
--# <a:3whitearrow:1398827311671017535> ask if your unsure of anything   
-⋆   ｡  ﹒scammers get banned <:B_2:1399841937422291115>   
--# open a support ticket if you see a scammer in the server <a:000:1325522777977126934>  
-
-<:arrow:1324783744854265888> breaking tos = ban/warn/comm ban/mw ban 
--# not doing reqs in gws lead to gw ban""",
-        color=EMBED_COLOR
-    )
+    description=(
+        "﹒make sure to follow **all** of these rules <a:038:1258205221385932993>\n"
+        "　<a:000:1325522777977126934>  - general tos   ⋆        ｡        ˚\n"
+        "　　　<a:witchy_wand:1399842051788505108>  - middleman tos\n"
+        " 　<a:pending:1398831307139584150>  - commission tos\n"
+        "-# <a:3whitearrow:1398827311671017535> ask if you're unsure of anything\n"
+        "⋆   ｡  ﹒scammers get banned <:B_2:1399841937422291115>\n"
+        "-# open a support ticket if you see a scammer in the server <a:000:1325522777977126934>\n\n"
+        "<:arrow:1324783744854265888> breaking tos = ban/warn/comm ban/mw ban\n"
+        "-# not doing reqs in gws leads to gw ban"
+    ),
+    color=EMBED_COLOR
+)
 
     view = InfoPanelView()
     await channel.send(embed=embed, view=view)
@@ -62,53 +63,60 @@ class InfoPanelView(discord.ui.View):
 
     @discord.ui.button(emoji="<a:000:1398827227348733982>", style=discord.ButtonStyle.secondary, custom_id="tos_general")
     async def general_button(self, interaction: discord.Interaction, button: discord.ui.Button):
-        embed = discord.Embed(description="""⋆   ｡  ﹒˚ **general tos <a:000:1398827227348733982> ** 
-no blatant racism or rudeness  
-﹒<:arrow:1398832711631765506> respect all staffs <a:038:1398827882465464382>  
-
-no nsfw , gore or threats  
-﹒﹒  no promos
-
-dont troll <a:pending:1398831307139584150>   
--# troll gets a ban most likely
-
-<a:emoji_118:1399839377131307172>  use your common sense﹒ 
-﹒dont copy embeds/concepts from here
--# in doing so is ban or warn""", color=EMBED_COLOR)
+        embed = discord.Embed(
+    description=(
+        "⋆   ｡  ﹒˚ **general tos <a:000:1398827227348733982>**\n"
+        "no blatant racism or rudeness\n"
+        "﹒<:arrow:1398832711631765506> respect all staffs <a:038:1398827882465464382>\n\n"
+        "no nsfw , gore or threats\n"
+        "﹒﹒ no promos\n\n"
+        "dont troll <a:pending:1398831307139584150>\n"
+        "-# troll gets a ban most likely\n\n"
+        "<a:emoji_118:1399839377131307172> use your common sense﹒\n"
+        "﹒dont copy embeds/concepts from here\n"
+        "-# in doing so is ban or warn"
+    ),
+    color=EMBED_COLOR
+)
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
     @discord.ui.button(emoji="<a:pink_strawberry:1399844657315319929>", style=discord.ButtonStyle.secondary, custom_id="tos_mm")
     async def mm_button(self, interaction: discord.Interaction, button: discord.ui.Button):
-        embed = discord.Embed(description="""⋆   ｡  ﹒˚ **middleman tos <a:witchy_wand:1399842051788505108>  ** 
-use your common sense <a:000:1398827227348733982>  
-﹒dont be rude or ghost the mm <:ttAwkward:1398828101173252228>  
-
-<:arrow:1398832711631765506> not vouching mm in 24hr - ban   
-open a ticket once both are online <a:pending:1398831307139584150>  
--# in doing so is warn or ban (and mw ban)
-
-﹒i dont hold money for middlewomen  
--# <a:3whitearrow:1398827311671017535> more are listed in the req channel   
-﹒﹒tips are appreciated <a:000:1398827227348733982>  
--# <a:3whitearrow:1398827311671017535> tippers get a role <a:038:1398827882465464382>""", color=EMBED_COLOR)
+        embed = discord.Embed(
+    description=(
+        "⋆   ｡  ﹒˚ **middleman tos <a:witchy_wand:1399842051788505108>**\n"
+        "use your common sense <a:000:1398827227348733982>\n"
+        "﹒dont be rude or ghost the mm <:ttAwkward:1398828101173252228>\n\n"
+        "<:arrow:1398832711631765506> not vouching mm in 24hr - ban\n"
+        "open a ticket once both are online <a:pending:1398831307139584150>\n"
+        "-# in doing so is warn or ban (and mw ban)\n\n"
+        "﹒i dont hold money for middlewomen\n"
+        "-# <a:3whitearrow:1398827311671017535> more are listed in the req channel\n"
+        "﹒﹒tips are appreciated <a:000:1398827227348733982>\n"
+        "-# <a:3whitearrow:1398827311671017535> tippers get a role <a:038:1398827882465464382>"
+    ),
+    color=EMBED_COLOR
+)
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
     @discord.ui.button(emoji="<a:pending:1398831307139584150>", style=discord.ButtonStyle.secondary, custom_id="tos_commission")
     async def comm_button(self, interaction: discord.Interaction, button: discord.ui.Button):
-        embed = discord.Embed(description="""⋆   ｡  ﹒˚ **commission tos    **
-use your common sense  
-﹒<:arrow:1398832711631765506> you cant ask for a refund <a:000:1398827227348733982>  
--#  <a:3whitearrow:1398827311671017535> you can cancel but no refunds 
-
-not vouching in 24hr - ban  
-﹒dont ghost tickets <a:emoji_118:1399839377131307172>   
-
-payment is always upfront <a:038:1398827882465464382> 
-<:arrow:1398832711631765506> rush / rude = order cancel no refund 
--# <a:3whitearrow:1398827311671017535> you can ask for updates but not too much 
-
-tips are appreciated  
--# <a:3whitearrow:1398827311671017535>  tippers get a role <a:000:1398827227348733982>""", color=EMBED_COLOR)
+        embed = discord.Embed(
+    description=(
+        "⋆   ｡  ﹒˚ **commission tos**\n"
+        "use your common sense\n"
+        "﹒<:arrow:1398832711631765506> you can't ask for a refund <a:000:1398827227348733982>\n"
+        "-# <a:3whitearrow:1398827311671017535> you can cancel but no refunds\n\n"
+        "not vouching in 24hr - ban\n"
+        "﹒dont ghost tickets <a:emoji_118:1399839377131307172>\n\n"
+        "payment is always upfront <a:038:1398827882465464382>\n"
+        "<:arrow:1398832711631765506> rush / rude = order cancel no refund\n"
+        "-# <a:3whitearrow:1398827311671017535> you can ask for updates but not too much\n\n"
+        "tips are appreciated\n"
+        "-# <a:3whitearrow:1398827311671017535> tippers get a role <a:000:1398827227348733982>"
+    ),
+    color=EMBED_COLOR
+)
         await interaction.response.send_message(embed=embed, ephemeral=True)
 
 @bot.event
@@ -150,3 +158,4 @@ async def main():
 
 
 asyncio.run(main())
+
