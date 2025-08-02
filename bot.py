@@ -6,7 +6,7 @@ from discord import app_commands
 from discord.ext import commands
 
 INFO_PANEL_CHANNEL_ID = 1398822788923392091
-EMBED_COLOR = discord.Color(0xFF8BA0)
+EMBED_COLOR = discord.Color(0xFFA8B5)
 
 intents = discord.Intents.default()
 intents.guilds = True
@@ -158,4 +158,5 @@ async def main():
 
 
 asyncio.run(main())
+
 
