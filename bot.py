@@ -6,7 +6,7 @@ from discord import app_commands
 from discord.ext import commands
 
 INFO_PANEL_CHANNEL_ID = 1398822788923392091
-EMBED_COLOR = discord.Color(0xFFA8B5)
+EMBED_COLOR = discord.Color(0xFFCCCB)
 
 intents = discord.Intents.default()
 intents.guilds = True
@@ -41,14 +41,14 @@ async def send_info_panel():
 
     embed = discord.Embed(
     description=(
-        "﹒make sure to follow **all** of these rules <a:038:1258205221385932993>\n"
-        "　<a:000:1325522777977126934>  - general tos   ⋆        ｡        ˚\n"
+        "﹒make sure to follow **all** of these rules <a:038:1398827882465464382>\n"
+        "　 <a:000:1398827227348733982>  - general tos   ⋆        ｡        ˚\n"
         "　　　<a:witchy_wand:1399842051788505108>  - middleman tos\n"
         " 　<a:pending:1398831307139584150>  - commission tos\n"
         "-# <a:3whitearrow:1398827311671017535> ask if you're unsure of anything\n"
         "⋆   ｡  ﹒scammers get banned <:B_2:1399841937422291115>\n"
-        "-# open a support ticket if you see a scammer in the server <a:000:1325522777977126934>\n\n"
-        "<:arrow:1324783744854265888> breaking tos = ban/warn/comm ban/mw ban\n"
+        "-# open a support ticket if you see a scammer in the server  <a:000:1398827227348733982>\n\n"
+        "<:arrow:1398832711631765506> breaking tos = ban/warn/comm ban/mw ban\n"
         "-# not doing reqs in gws leads to gw ban"
     ),
     color=EMBED_COLOR
@@ -158,5 +158,6 @@ async def main():
 
 
 asyncio.run(main())
+
 
 
